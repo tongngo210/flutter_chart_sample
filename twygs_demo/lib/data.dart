@@ -41,7 +41,7 @@ class Datas {
 
   static List<LineChartItem> listMultiLineChartData = [
     LineChartItem(
-      listXYs: const [
+      listSpots: const [
         Pair(0, 2),
         Pair(1, 4),
         Pair(2, 3),
@@ -77,7 +77,7 @@ class Datas {
       name: 'Canada',
     ),
     LineChartItem(
-      listXYs: const [
+      listSpots: const [
         Pair(0, 12),
         Pair(1, 14),
         Pair(2, 13),
@@ -113,7 +113,7 @@ class Datas {
       name: 'United States',
     ),
     LineChartItem(
-      listXYs: const [
+      listSpots: const [
         Pair(0, 22),
         Pair(1, 24),
         Pair(2, 23),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twygs_demo/utils/pair.dart';
 import 'data.dart';
+import 'model/model.dart';
 import 'widgets/widgets.dart';
 
 void main() {
@@ -88,13 +89,15 @@ class _MyHomePageState extends State<MyHomePage> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
           child: LineChartWidget(
-            listSpots: Datas.lineChartData,
+            chartItem: LineChartItem(
+              listSpots: Datas.lineChartData,
+              lineColor: const Color(0xFFA6D38D),
+              lineWidth: 3,
+            ),
             startDate: DateTime.now().subtract(const Duration(days: 30)),
             endDate: DateTime.now(),
-            lineColor: const Color(0xFFA6D38D),
-            lineWidth: 1,
+            dateFormat: 'MMM dd, yyyy',
             belowColor: Colors.amber,
-            belowGradientColors: const [Colors.black, Colors.amber],
           ),
         );
       case ChartType.multipleLine:

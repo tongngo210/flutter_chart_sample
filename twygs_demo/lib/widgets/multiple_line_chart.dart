@@ -48,11 +48,11 @@ class MultipleLineChartWidget extends StatelessWidget {
                 lineTouchData: const LineTouchData(enabled: false),
                 lineBarsData: listItems
                     .map((e) => LineChartBarData(
-                          spots: e.listXYs
+                          spots: e.listSpots
                               .map((e) => FlSpot(e.first, e.second))
                               .toList(),
                           isCurved: e.isCurved,
-                          barWidth: e.barWidth,
+                          barWidth: e.lineWidth,
                           color: e.lineColor,
                           dotData: const FlDotData(show: false),
                         ))

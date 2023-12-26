@@ -2,33 +2,30 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:twygs_demo/utils/utils.dart';
+import '../model/model.dart';
 
 class LineChartWidget extends StatelessWidget {
   const LineChartWidget({
     super.key,
-    required this.listSpots,
+    required this.chartItem,
     required this.startDate,
     required this.endDate,
-    required this.lineColor,
+    required this.dateFormat,
     this.belowGradientColors,
     this.belowColor,
-    this.lineWidth = 1,
-    this.isCurved = true,
   });
 
-  final List<Pair<double, double>> listSpots;
-  final Color lineColor;
   final Color? belowColor;
   final List<Color>? belowGradientColors;
-  final double lineWidth;
-  final bool isCurved;
   final DateTime startDate;
   final DateTime endDate;
+  final String dateFormat;
+  final LineChartItem chartItem;
 
   @override
   Widget build(BuildContext context) {
-    final spots = listSpots.map((e) => FlSpot(e.first, e.second)).toList();
+    final spots =
+        chartItem.listSpots.map((e) => FlSpot(e.first, e.second)).toList();
 
     return Column(
       children: [
@@ -40,9 +37,9 @@ class LineChartWidget extends StatelessWidget {
               lineBarsData: [
                 LineChartBarData(
                   spots: spots,
-                  isCurved: isCurved,
-                  barWidth: lineWidth,
-                  color: lineColor,
+                  isCurved: chartItem.isCurved,
+                  barWidth: chartItem.lineWidth,
+                  color: chartItem.lineColor,
                   dotData: const FlDotData(show: false),
                   belowBarData: BarAreaData(
                     show: belowColor != null || belowGradientColors != null,
@@ -78,11 +75,11 @@ class LineChartWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              DateFormat('MMM dd, yyyy').format(startDate),
+              DateFormat(dateFormat).format(startDate),
               style: const TextStyle(fontSize: 14),
             ),
             Text(
-              DateFormat('MMM dd, yyyy').format(endDate),
+              DateFormat(dateFormat).format(endDate),
               style: const TextStyle(fontSize: 14),
             )
           ],

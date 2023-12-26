@@ -3,16 +3,16 @@ import 'package:twygs_demo/utils/utils.dart';
 
 class LineChartItem {
   final String? name;
-  final List<Pair<double, double>> listXYs;
+  final List<Pair<double, double>> listSpots;
   final Color lineColor;
   final bool isCurved;
-  final double barWidth;
+  final double lineWidth;
 
   LineChartItem({
-    required this.listXYs,
+    required this.listSpots,
     required this.lineColor,
     this.name,
     this.isCurved = true,
-    this.barWidth = 1,
+    this.lineWidth = 1,
   });
 }
